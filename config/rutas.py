@@ -9,3 +9,11 @@ RUTA_DATOS_CRUDOS = (
     / "household_power_consumption.txt"
 )
 
+DIR_DATOS_PROCESADOS = BASE_DIR / "data" / "data-processed"
+
+# Dataset limpio e imputado, sin escalar (unidades reales, lo usa el dashboard)
+RUTA_DATOS_LIMPIOS = DIR_DATOS_PROCESADOS / "consumo_limpio.parquet"
+
+# Dataset final del Paso 6: normalizado, sin variables redundantes y con PCs
+RUTA_DATOS_PREPARADOS = DIR_DATOS_PROCESADOS / "consumo_preparado.parquet"
+

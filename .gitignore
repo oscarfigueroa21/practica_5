@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+
+.venv/
+venv/
+
+.ipynb_checkpoints/
+data/data-raw/*
+!data/data-raw/.gitkeep
+/household_power_consumption.txt
+AyMD_Practica_5.pdf
