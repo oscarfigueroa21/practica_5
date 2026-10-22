@@ -9,3 +9,6 @@ Los datos utilizados para la elaboración de esta práctica, se pueden encontrar
 Una vez descargado el dataset, este debe colocarse en la carpeta `data/data-raw/` para su reproducción. 
 
 * *Nota:* Por políticas de tamaño de Git, el archivo original txt contenido en `data/data-raw/` no se incluye en el repositorio.
+
+## Dataset Procesado
+El dataset preparado final se guardó en `data/data-processed/consumo_preparado.parquet`. Se utilizó el formato Parquet en lugar de CSV para optimizar el almacenamiento (pesa ~90 MB frente a los ~190 MB que ocuparía en CSV plano), permitiendo subirlo directamente al repositorio dentro del límite de GitHub y agilizar su lectura en el dashboard.
