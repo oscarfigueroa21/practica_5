@@ -10,8 +10,25 @@ Una vez descargado el dataset, este debe colocarse en la carpeta `data/data-raw/
 
 * *Nota:* Por políticas de tamaño de Git, el archivo original txt contenido en `data/data-raw/` no se incluye en el repositorio.
 
+## Estructura de Carpetas
+Esta práctica posee una estructura de carpetas idéntica a las realizadas en las dos prácticas anteriores. Se incluyen dos nuevas carpetas llamadas `visualization` y `dashbord`. 
+
+
 ## Dataset Procesado
 El dataset preparado final se guardó en `data/data-processed/consumo_preparado.parquet`. Se utilizó el formato Parquet en lugar de CSV para optimizar el almacenamiento (pesa ~90 MB frente a los ~190 MB que ocuparía en CSV plano), permitiendo subirlo directamente al repositorio dentro del límite de GitHub y agilizar su lectura en el dashboard.
+
+## Cómo instalar el entorno
+Este proyecto utiliza Python 3.10+ y los frameworks `pandas`, `matplotlib`, `sckit-learn`, `stremlit`.
+
+1. Clonar el repositorio y entrar a la carpeta del proyecto.
+2. Crear un entorno virtual:
+   ```bash
+   python -m venv venv
+   ```
+3. Activar el entorno virtual (Linux/Mac: `source venv/bin/activate` | Windows: `venv\Scripts\activate`)
+4. Instalar las dependencias:
+   ```bash
+   pip install -r requirements.txt
 
 ## Cómo ejecutar el pipeline
 La inspección, limpieza, normalización, y los análisis dimensionalidad estan dividido por temáticas en las carpetas correspondientes, según la rúbrica de la práctica:
