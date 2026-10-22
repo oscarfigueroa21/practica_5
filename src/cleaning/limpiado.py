@@ -1,6 +1,8 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
+FECHA_CORTE = '2009-12-31 23:59:00'
+
 def casteo_datos(RUTA_DATOS_CRUDOS):
     df_casteado = pd.read_csv(RUTA_DATOS_CRUDOS, sep=';', na_values='?', low_memory=False)
     
@@ -36,13 +38,18 @@ def obtener_datos_limpios(RUTA_DATOS_CRUDOS):
     df_limpio = imputar_faltantes(df_deduplicado)
     return df_limpio
 
+def normalizar_zscore(df_limpio, fecha_corte=FECHA_CORTE):
+    scaler = StandardScaler()
+    scaler.fit(df_limpio.loc[:fecha_corte])
+    df_z = pd.DataFrame(
+        scaler.transform(df_limpio), 
+        columns=df_limpio.columns, 
+        index=df_limpio.index
+    )
+    return df_z, scaler
+
 def limpieza_imputacion(df_casteado):
     df_deduplicado = deduplicar(df_casteado)
     df_interpolado = imputar_faltantes(df_deduplicado)
-    scaler = StandardScaler()
-    df_z_score = pd.DataFrame(
-        scaler.fit_transform(df_interpolado), 
-        columns=df_interpolado.columns, 
-        index=df_interpolado.index
-    )
+    df_z_score, _ = normalizar_zscore(df_interpolado)
     return df_z_score
