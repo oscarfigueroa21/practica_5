@@ -37,3 +37,6 @@ La inspección, limpieza, normalización, y los análisis dimensionalidad estan 
 2. **Limpieza y Normalización:** Ejecutar `src/cleaning/limpieza.ipynb` (Incluye casteo de datos, deduplicación, imputación de nulos y normalización.)
 3. **Correlación de Pearson:** Ejecutar `notebooks/dimensionalidad.ipynb` (Incluye matriz de correlación de Pearson de las variables cuantitativas, eliminación de variables con alta correlación. ).
 4. **Analisis de Componentes Principales (PCA):** Ejecutar `notebooks/analisis_PCA.ipynb` (Analisis PCA con la gráfica de varianza y proyección 2D).
+
+## Dashbord Interactivo:
+Para poder visualizar el dashbord e interactuar con él, se ejecuta desde la terminal y se abre un localhost. 
