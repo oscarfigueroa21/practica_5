@@ -12,3 +12,11 @@ Una vez descargado el dataset, este debe colocarse en la carpeta `data/data-raw/
 
 ## Dataset Procesado
 El dataset preparado final se guardó en `data/data-processed/consumo_preparado.parquet`. Se utilizó el formato Parquet en lugar de CSV para optimizar el almacenamiento (pesa ~90 MB frente a los ~190 MB que ocuparía en CSV plano), permitiendo subirlo directamente al repositorio dentro del límite de GitHub y agilizar su lectura en el dashboard.
+
+## Cómo ejecutar el pipeline
+La inspección, limpieza, normalización, y los análisis dimensionalidad estan dividido por temáticas en las carpetas correspondientes, según la rúbrica de la práctica:
+
+1. **Inspección:** Ejecutar `notebooks/Inspeccion.ipynb` (incluye carga de datos, dimensiones, tipos de datos y problemas de calidad econtrados. ).
+2. **Limpieza y Normalización:** Ejecutar `src/cleaning/limpieza.ipynb` (Incluye casteo de datos, deduplicación, imputación de nulos y normalización.)
+3. **Correlación de Pearson:** Ejecutar `notebooks/dimensionalidad.ipynb` (Incluye matriz de correlación de Pearson de las variables cuantitativas, eliminación de variables con alta correlación. ).
+4. **Analisis de Componentes Principales (PCA):** Ejecutar `notebooks/analisis_PCA.ipynb` (Analisis PCA con la gráfica de varianza y proyección 2D).
