@@ -17,3 +17,5 @@ RUTA_DATOS_LIMPIOS = DIR_DATOS_PROCESADOS / "consumo_limpio.parquet"
 # Dataset final del Paso 6: normalizado, sin variables redundantes y con PCs
 RUTA_DATOS_PREPARADOS = DIR_DATOS_PROCESADOS / "consumo_preparado.parquet"
 
+RUTA_TRANSACCIONES= BASE_DIR / "src" / "models" / "transacciones.py"
+

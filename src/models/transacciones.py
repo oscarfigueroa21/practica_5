@@ -25,9 +25,7 @@ def crear_transacciones_reglas(df_limpio, umbral_cocina=0, umbral_lavanderia=0, 
             return 'Madrugada'
         elif 6 <= hora < 12:
             return 'Manana'
-        elif 12 <= hora < 14:
-            return 'Mediodia'
-        elif 14 <= hora < 19:
+        elif 12 <= hora < 19:
             return 'Tarde'
         else:
             return 'Noche'
@@ -38,4 +36,19 @@ def crear_transacciones_reglas(df_limpio, umbral_cocina=0, umbral_lavanderia=0, 
 
 def guardar_input_reglas(df_horario, ruta_salida="data/data-processed/input_reglas_asociacion.csv"):
     df_horario.to_csv(ruta_salida, index=True)
-    print(f"Dataset guardado exitosamente en: {ruta_salida}")
+    print(f"Dataset guardado: {ruta_salida}")
+
+def agregar_habitaciones_activas(df_horario):
+
+    def obtener_lista_activas(row):
+        activas = []
+        if row['Cocina']:
+            activas.append('Cocina')
+        if row['Lavanderia']:
+            activas.append('Lavanderia')
+        if row['Climatizacion']:
+            activas.append('Climatizacion')
+        return ", ".join(activas) if activas else "Ninguna"
+
+    df_horario['Habitaciones_Activas'] = df_horario.apply(obtener_lista_activas, axis=1)
+    return df_horario
