@@ -1,3 +1,6 @@
+from pathlib import Path
+import pandas as pd
+
 def crear_transacciones_reglas(df_limpio, umbral_cocina=0, umbral_lavanderia=0, umbral_climatizacion=0):
 
     df_horario = df_limpio.resample('h').agg({
@@ -34,7 +37,9 @@ def crear_transacciones_reglas(df_limpio, umbral_cocina=0, umbral_lavanderia=0, 
 
     return df_horario
 
-def guardar_input_reglas(df_horario, ruta_salida="data/data-processed/input_reglas_asociacion.csv"):
+def guardar_input_reglas(df_horario, ruta_salida=Path("data") / "data-processed" / "input_reglas_asociacion.csv"):
+    ruta_salida = Path(ruta_salida)
+    ruta_salida.parent.mkdir(parents=True, exist_ok=True)
     df_horario.to_csv(ruta_salida, index=True)
     print(f"Dataset guardado: {ruta_salida}")
 
